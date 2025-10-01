@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>x</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+body {
+  background: #0d1117;
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+header {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+header span {
+  background: rgba(97,168,255,0.15);
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #61a8ff;
+  letter-spacing: 2px;
+  backdrop-filter: blur(10px);
+}
+.content {
+  display: grid;
+  grid-template-columns: repeat(3, 220px);
+  gap: 25px;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+  transition: transform .3s ease;
+  cursor: pointer;
+  animation: fadeUp 1s ease;
+  width: 220px;
+}
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+@keyframes fadeUp {
+  from {opacity: 0; transform: translateY(30px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+.card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.card h3 {
+  font-size: 1rem;
+  margin: 10px 0 6px;
+  color: #61a8ff;
+}
+.card p {
+  font-size: 0.8rem;
+  margin: 0 10px 10px;
+  color: #ccc;
+}
+.card .more {
+  display: inline-block;
+  margin: 4px;
+  padding: 6px 12px;
+  background: #1a73e8;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: bold;
+  transition: background .3s ease, transform .2s ease;
+}
+.card .more:hover {
+  background: #1558b0;
+  transform: scale(1.05);
+}
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .3s ease, visibility .3s ease;
+  z-index: 2000;
+}
+.modal.active {
+  visibility: visible;
+  opacity: 1;
+}
+.modal-content {
+  background: rgba(20,20,20,0.95);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  max-height: 80%;
+  overflow-y: auto;
+  transform: scale(0.8);
+  transition: transform .3s ease;
+  text-align: center;
+}
+.modal.active .modal-content {
+  transform: scale(1);
+}
+.modal-content img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+.modal-content h2 {
+  margin-bottom: 10px;
+  color: #61a8ff;
+}
+.modal-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+}
+.modal-content ul li {
+  margin-bottom: 8px;
+  padding: 10px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+}
+.download-btn {
+  display: block;
+  width: 100%;
+  margin-top: 15px;
+  padding: 12px;
+  background: #1a73e8;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background .3s ease, transform .2s ease;
+}
+.download-btn:hover {
+  background: #1558b0;
+  transform: scale(1.02);
+}
+.close {
+  position: absolute;
+  top: 20px; right: 30px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #fff;
+  transition: transform .3s ease;
+}
+.close:hover {
+  transform: scale(1.2);
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a73e8;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1558b0;
+}
+</style>
+</head>
+<body>
+<header><span>dizasterry</span></header>
+<div class="content">
+  <div class="card" data-title="dizasterry.asi" data-desc="DIZASTERRY NEW SOFT FOR AMAZING" data-img="img/photo_2025-09-30_07-26-43.jpg" data-func="1. пусто|2. пусто|3. пусто">
+    <img src="img/photo_2025-09-30_07-26-43.jpg">
+    <h3>dizasterry.asi</h3>
+    <p>DIZASTERRY NEW SOFT FOR AMAZING</p>
+    <div class="more">Подробнее...</div>
+  </div>
+  <div class="card" data-title="dmg.asi" data-desc="DIZASTERRY dmg SOFT FOR AMAZING" data-img="img/photo_2025-10-01_15-54-54.jpg" data-func="1. пусто|2. пусто|3. пусто">
+    <img src="img/photo_2025-10-01_15-54-54.jpg">
+    <h3>dmg.asi</h3>
+    <p>DIZASTERRY dmg SOFT FOR AMAZING</p>
+    <div class="more">Подробнее...</div>
+  </div>
+  <div class="card" data-title="FinalProject.asi" data-desc="Darkp1xel finalproject SOFT FOR AMAZING" data-img="img/Screenshot_1.png" data-func="1. пусто|2. пусто|3. пусто">
+    <img src="img/Screenshot_1.png">
+    <h3>FinalProject.asi</h3>
+    <p>Darkp1xel finalproject SOFT FOR AMAZING</p>
+    <div class="more">Подробнее...</div>
+  </div>
+</div>
+
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" id="close">&times;</span>
+    <img id="modalImg" src="">
+    <h2 id="modalTitle"></h2>
+    <p id="modalDesc"></p>
+    <ul id="modalFunc"></ul>
+    <a href="#" class="download-btn" id="downloadBtn">Скачать</a>
+  </div>
+</div>
+
+<script>
+const moreButtons = document.querySelectorAll('.more')
+const modal = document.getElementById('modal')
+const closeBtn = document.getElementById('close')
+const modalTitle = document.getElementById('modalTitle')
+const modalDesc = document.getElementById('modalDesc')
+const modalImg = document.getElementById('modalImg')
+const modalFunc = document.getElementById('modalFunc')
+const downloadBtn = document.getElementById('downloadBtn')
+
+moreButtons.forEach(btn=>{
+  btn.addEventListener('click', e=>{
+    const card = e.target.closest('.card')
+    modalTitle.textContent = card.dataset.title
+    modalDesc.textContent = card.dataset.desc
+    modalImg.src = card.dataset.img
+    modalFunc.innerHTML = ''
+    card.dataset.func.split('|').forEach(item=>{
+      const li = document.createElement('li')
+      li.textContent = item
+      modalFunc.appendChild(li)
+    })
+    downloadBtn.href = 'files/' + card.dataset.title
+    downloadBtn.setAttribute('download', card.dataset.title)
+    modal.classList.add('active')
+  })
+})
+
+closeBtn.addEventListener('click', ()=>{
+  modal.classList.remove('active')
+})
+
+modal.addEventListener('click', e=>{
+  if(e.target===modal){
+    modal.classList.remove('active')
+  }
+})
+</script>
+</body>
+</html>
